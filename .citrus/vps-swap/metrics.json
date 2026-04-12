@@ -1,0 +1,25 @@
+{
+  "changeSet": "vps-swap",
+  "status": "validated",
+  "server": {
+    "host": "185.21.8.116",
+    "port": 2222,
+    "os": "Ubuntu 24.04.3 LTS"
+  },
+  "swap": {
+    "file": "/swapfile",
+    "sizeGiB": 2,
+    "active": true,
+    "persistedInFstab": true
+  },
+  "sysctl": {
+    "vm.swappiness": 10,
+    "vm.vfs_cache_pressure": 50
+  },
+  "commands": [
+    "ssh -p 2222 root@185.21.8.116 \"fallocate -l 2G /swapfile && chmod 600 /swapfile && mkswap /swapfile && swapon /swapfile\"",
+    "ssh -p 2222 root@185.21.8.116 \"grep -q '^/swapfile ' /etc/fstab || echo '/swapfile none swap sw 0 0' >> /etc/fstab\"",
+    "ssh -p 2222 root@185.21.8.116 \"sysctl -w vm.swappiness=10 && sysctl -w vm.vfs_cache_pressure=50\"",
+    "ssh -p 2222 root@185.21.8.116 \"swapon --show && free -h\""
+  ]
+}

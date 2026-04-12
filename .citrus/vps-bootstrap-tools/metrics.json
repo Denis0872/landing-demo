@@ -1,0 +1,29 @@
+{
+  "changeSet": "vps-bootstrap-tools",
+  "status": "validated",
+  "server": {
+    "host": "185.21.8.116",
+    "port": 2222,
+    "os": "Ubuntu 24.04.3 LTS"
+  },
+  "tools": {
+    "java": "21.0.10",
+    "javac": "21.0.10",
+    "docker": "28.2.2",
+    "dockerCompose": "2.40.3"
+  },
+  "docker": {
+    "serviceEnabled": true,
+    "serviceActive": true,
+    "userInDockerGroup": true
+  },
+  "notes": {
+    "memoryMiBApprox": 961,
+    "swapConfigured": false
+  },
+  "commands": [
+    "ssh -p 2222 root@185.21.8.116 \"apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y openjdk-21-jdk docker-compose-v2 && systemctl enable --now docker && usermod -aG docker denis\"",
+    "ssh -p 2222 denis@185.21.8.116 \"id && java -version && javac -version && docker --version && docker compose version && docker ps --format '{{.Names}} {{.Status}}'\"",
+    "ssh -p 2222 root@185.21.8.116 \"systemctl is-enabled docker && systemctl is-active docker\""
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "changeSet": "java-21-config",
+  "status": "validated",
+  "javaVersion": 21,
+  "validation": {
+    "mavenWrapperJava": "21.0.6",
+    "testsPassed": 6,
+    "testsFailed": 0,
+    "testsSkipped": 0
+  },
+  "commands": [
+    "./mvnw.cmd -version",
+    "./mvnw.cmd clean test"
+  ]
+}
