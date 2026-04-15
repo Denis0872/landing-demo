@@ -1,0 +1,23 @@
+{
+  "changeSet": "vps-canonical-domain",
+  "status": "validated",
+  "canonicalUrl": "https://lizaalertspb.ru",
+  "redirects": {
+    "httpApex": 301,
+    "httpWww": 301,
+    "httpsWww": 301,
+    "httpsApex": 200
+  },
+  "api": {
+    "url": "https://lizaalertspb.ru/api/v1/lost-cases",
+    "status": 200,
+    "response": "[]"
+  },
+  "commands": [
+    "curl -I http://lizaalertspb.ru",
+    "curl -I https://lizaalertspb.ru",
+    "curl -I http://www.lizaalertspb.ru",
+    "curl -I https://www.lizaalertspb.ru",
+    "curl https://lizaalertspb.ru/api/v1/lost-cases"
+  ]
+}
