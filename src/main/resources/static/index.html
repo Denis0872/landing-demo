@@ -3,140 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>След Лапы - поиск пропавших животных</title>
-    <meta name="description" content="След Лапы помогает быстро публиковать объявления о пропавших питомцах, подключать волонтеров и возвращать животных домой.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Prata&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles.css">
+    <title>Liza Alert Backend</title>
+    <style>
+        :root {
+            color-scheme: light;
+            font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            color: #1d1d1f;
+            background: linear-gradient(180deg, #fff9f5 0%, #f7efe8 100%);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 24px;
+        }
+
+        .panel {
+            width: min(760px, 100%);
+            padding: 32px;
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.88);
+            border: 1px solid rgba(29, 29, 31, 0.08);
+            box-shadow: 0 24px 60px rgba(51, 30, 20, 0.08);
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            padding: 0.45rem 0.8rem;
+            border-radius: 999px;
+            background: rgba(214, 69, 47, 0.12);
+            color: #b33c23;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 18px 0 12px;
+            font-size: clamp(2rem, 4vw, 3.4rem);
+            line-height: 1.05;
+        }
+
+        p {
+            margin: 0;
+            color: #5c524f;
+            line-height: 1.6;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 46px;
+            padding: 0 18px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .primary {
+            color: #fff;
+            background: #d6452f;
+        }
+
+        .secondary {
+            color: #1d1d1f;
+            background: rgba(29, 29, 31, 0.08);
+        }
+
+        code {
+            padding: 0.2rem 0.45rem;
+            border-radius: 999px;
+            background: rgba(29, 29, 31, 0.08);
+        }
+    </style>
 </head>
 <body>
-<div class="page-shell">
-    <header class="hero">
-        <nav class="topbar">
-            <div class="brand">
-                <span class="brand-mark">SL</span>
-                <div>
-                    <p>След Лапы</p>
-                    <span>Поиск пропавших животных</span>
-                </div>
-            </div>
-            <a class="top-link" href="#report">Подать заявку</a>
-        </nav>
-
-        <div class="hero-grid">
-            <section class="hero-copy reveal">
-                <span class="eyebrow">Цифровой штаб помощи</span>
-                <h1>Находим потерявшихся питомцев быстрее, пока важна каждая минута.</h1>
-                <p class="hero-text">Публикуйте ориентировку, отмечайте район пропажи, подключайте соседей и волонтеров. Одна страница объединяет поиск, горячие свидетельства и карту последних сигналов.</p>
-                <div class="hero-actions">
-                    <a class="button button-primary" href="#report">Создать ориентировку</a>
-                    <a class="button button-secondary" href="#cases">Смотреть истории</a>
-                </div>
-                <ul class="hero-stats">
-                    <li><strong>12 мин</strong><span>среднее время публикации</span></li>
-                    <li><strong>4 800+</strong><span>локальных помощников</span></li>
-                    <li><strong>24/7</strong><span>прием сигналов и проверок</span></li>
-                </ul>
-            </section>
-
-            <section class="hero-card reveal reveal-delay-1">
-                <div class="hero-card-header">
-                    <span class="status-dot"></span>
-                    <p>Активный поиск</p>
-                </div>
-                <div class="pet-card featured-pet">
-                    <div>
-                        <span class="pet-type">Собака</span>
-                        <h2>Марсель, 3 года</h2>
-                        <p>Пропал возле парка Сокольники. Чипирован, на красном ошейнике, откликается на свист.</p>
-                    </div>
-                    <div class="signal-map" aria-hidden="true">
-                        <span class="signal signal-one"></span>
-                        <span class="signal signal-two"></span>
-                        <span class="signal signal-three"></span>
-                    </div>
-                </div>
-                <div class="mini-feed">
-                    <article>
-                        <span>09:14</span>
-                        <p>Получен сигнал от прохожего с улицы Стромынка.</p>
-                    </article>
-                    <article>
-                        <span>09:31</span>
-                        <p>Волонтеры взяли северный сектор на обход.</p>
-                    </article>
-                    <article>
-                        <span>09:47</span>
-                        <p>Отправлено уведомление в районные чаты и клиники.</p>
-                    </article>
-                </div>
-            </section>
-        </div>
-    </header>
-
-    <main>
-        <section class="trust-band reveal">
-            <p>Работаем вместе с приютами, районными чатами, клиниками и службами отлова, чтобы каждая ориентировка не терялась в потоке сообщений.</p>
-        </section>
-
-        <section class="steps" id="report">
-            <div class="section-heading reveal">
-                <span class="eyebrow">Как это работает</span>
-                <h2>Лендинг собирает поиск в три точных шага</h2>
-            </div>
-            <div class="steps-grid">
-                <article class="step-card reveal">
-                    <span class="step-number">01</span>
-                    <h3>Создайте карточку пропажи</h3>
-                    <p>Добавьте фото, приметы, район, привычки животного и контакт для связи.</p>
-                </article>
-                <article class="step-card reveal reveal-delay-1">
-                    <span class="step-number">02</span>
-                    <h3>Запустите локальную волну</h3>
-                    <p>Ориентировка уходит в волонтерскую сеть, клиники и соседские каналы района.</p>
-                </article>
-                <article class="step-card reveal reveal-delay-2">
-                    <span class="step-number">03</span>
-                    <h3>Получайте сигналы в одном окне</h3>
-                    <p>Свидетельства, точки на карте и история проверок собираются на одной странице.</p>
-                </article>
-            </div>
-        </section>
-
-        <section class="cases" id="cases">
-            <div class="section-heading reveal">
-                <span class="eyebrow">Истории возвращения</span>
-                <h2>Сильнее всего работает скорость, координация и заметная ориентировка</h2>
-            </div>
-            <div class="cases-grid">
-                <article class="case-card reveal">
-                    <span class="case-tag">Кошка</span>
-                    <h3>Нюта вернулась домой за 6 часов</h3>
-                    <p>Сработал маршрут по подвалам и быстрый отклик жителей соседнего дома.</p>
-                </article>
-                <article class="case-card reveal reveal-delay-1">
-                    <span class="case-tag">Попугай</span>
-                    <h3>Кешу заметили по голосу на детской площадке</h3>
-                    <p>Платформа помогла быстро собрать подтверждения и не потерять след.</p>
-                </article>
-                <article class="case-card accent-card reveal reveal-delay-2">
-                    <span class="case-tag">Сервис</span>
-                    <h3>Одна заявка, которая запускает реальное движение</h3>
-                    <p>Шаблоны ориентировок, карта районов и статусы проверок работают как единая команда.</p>
-                </article>
-            </div>
-        </section>
-
-        <section class="cta reveal">
-            <div>
-                <span class="eyebrow">Готовы начать поиск</span>
-                <h2>Если питомец пропал, не теряйте время на хаотичные посты.</h2>
-            </div>
-            <a class="button button-primary" href="mailto:help@sled-lapy.ru">Связаться с координатором</a>
-        </section>
-    </main>
-</div>
-<script src="/app.js"></script>
+<main class="panel">
+    <span class="eyebrow">Backend only</span>
+    <h1>Liza Alert Backend is running.</h1>
+    <p>
+        The temporary frontend has been removed from the backend project.
+        Use the separate web application for UI development.
+    </p>
+    <div class="actions">
+        <a class="primary" href="/api/v1/lost-cases">Open API</a>
+        <a class="secondary" href="https://lizaalertspb.ru/api/v1/lost-cases">Check production API</a>
+    </div>
+</main>
 </body>
 </html>
