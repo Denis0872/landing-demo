@@ -6,8 +6,8 @@
 ## Environment
 
 - Host: `185.21.8.116:2222`
-- Deploy directory: `/home/denis/apps/liza_alert`
-- Service: `liza-alert.service`
+- Deploy directory: `/home/denis/apps/liza_alert_backend`
+- Service: `liza-alert-backend.service`
 
 ## Actions performed
 
@@ -20,7 +20,7 @@
 ## Validation
 
 - `git rev-parse HEAD` on local and VPS
-- `systemctl status liza-alert.service`
+- `systemctl status liza-alert-backend.service`
 - `ss -ltnp` for port `8080`
 - `curl http://localhost/api/v1/lost-cases` on VPS
 - `curl http://185.21.8.116/api/v1/lost-cases` externally
@@ -28,7 +28,7 @@
 ## Outcome
 
 - VPS now runs commit `a6f1ed7`
-- `liza-alert.service` is active and owns port `8080`
+- `liza-alert-backend.service` is active and owns port `8080`
 - API responds with HTTP `200` both locally on the VPS and externally through `nginx`
 
 ## Notes

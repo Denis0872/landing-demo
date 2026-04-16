@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-SECRETS_FILE="/etc/liza-alert/liza-alert.env"
+SECRETS_FILE="/etc/liza-alert-backend/liza-alert-backend.env"
 PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 usage() {

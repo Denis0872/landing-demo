@@ -24,7 +24,7 @@
 - `curl https://278122.fornex.cloud/api/v1/lost-cases`
 - `certbot certificates`
 - `nginx -t`
-- `systemctl is-active nginx liza-alert.service`
+- `systemctl is-active nginx liza-alert-backend.service`
 
 ## Outcome
 

@@ -1,7 +1,7 @@
 # CITRUS Delivery Record
 
-- Change set: `rename-to-liza-alert`
-- Goal: align project naming, runtime configuration, and Java application identity with `liza_alert`
+- Change set: `rename-to-liza-alert-backend`
+- Goal: align project naming, runtime configuration, and Java application identity with `liza_alert_backend`
 - Scope:
   - Maven coordinates and project metadata
   - Spring application name and datasource names
@@ -15,11 +15,11 @@
 - `docker compose config`
 - `docker compose up -d`
 - `curl http://localhost:8080/api/v1/lost-cases`
-- `docker compose exec -T postgres psql -U postgres -d liza_alert -c "\dt"`
+- `docker compose exec -T postgres psql -U postgres -d liza_alert_backend -c "\dt"`
 
 ## Outcome
 
 - Build and tests passed
 - API responded with HTTP 200
-- Liquibase created tables in the renamed PostgreSQL database `liza_alert`
+- Liquibase created tables in the renamed PostgreSQL database `liza_alert_backend`
 - No legacy `landingdemo` or `landing-demo` identifiers remain in tracked source/config files

@@ -27,7 +27,7 @@
 
 ## Validation
 
-- `top`, `ps`, `docker top liza-alert-postgres`
+- `top`, `ps`, `docker top liza-alert-backend-postgres`
 - `curl https://278122.fornex.cloud/api/v1/lost-cases`
 - `ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no ... denis@185.21.8.116`
 - `ssh daniil@185.21.8.116` with key authentication

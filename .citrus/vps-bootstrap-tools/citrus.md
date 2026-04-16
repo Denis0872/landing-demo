@@ -1,7 +1,7 @@
 # CITRUS Delivery Record
 
 - Change set: `vps-bootstrap-tools`
-- Goal: prepare the target VPS for `liza_alert` deployment with Java 21 and Docker tooling
+- Goal: prepare the target VPS for `liza_alert_backend` deployment with Java 21 and Docker tooling
 
 ## Environment
 

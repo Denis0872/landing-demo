@@ -10,12 +10,12 @@
 
 ## Actions performed
 
-- added global nginx zones in `/etc/nginx/conf.d/liza_alert_rate_limit.conf`
-  - `limit_req_zone $binary_remote_addr zone=liza_alert_per_ip:10m rate=5r/s`
-  - `limit_conn_zone $binary_remote_addr zone=liza_alert_conn_per_ip:10m`
-- applied per-server limits in `/etc/nginx/sites-available/liza_alert`
-  - `limit_req zone=liza_alert_per_ip burst=20 nodelay`
-  - `limit_conn liza_alert_conn_per_ip 20`
+- added global nginx zones in `/etc/nginx/conf.d/liza_alert_backend_rate_limit.conf`
+  - `limit_req_zone $binary_remote_addr zone=liza_alert_backend_per_ip:10m rate=5r/s`
+  - `limit_conn_zone $binary_remote_addr zone=liza_alert_backend_conn_per_ip:10m`
+- applied per-server limits in `/etc/nginx/sites-available/liza_alert_backend`
+  - `limit_req zone=liza_alert_backend_per_ip burst=20 nodelay`
+  - `limit_conn liza_alert_backend_conn_per_ip 20`
 - validated nginx configuration and reloaded the service
 
 ## Validation

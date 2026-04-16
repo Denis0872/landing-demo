@@ -1,21 +1,21 @@
 # CITRUS Delivery Record
 
 - Change set: `vps-first-start`
-- Goal: clone `liza_alert` to the target VPS, start PostgreSQL via Docker Compose, build the application, and complete the first application startup
+- Goal: clone `liza_alert_backend` to the target VPS, start PostgreSQL via Docker Compose, build the application, and complete the first application startup
 
 ## Environment
 
 - Host: `185.21.8.116:2222`
 - Deploy user: `denis`
-- App directory: `/home/denis/apps/liza_alert`
+- App directory: `/home/denis/apps/liza_alert_backend`
 
 ## Actions performed
 
 - created deployment directory `/home/denis/apps`
-- cloned repository `https://github.com/Denis0872/liza_alert.git`
+- cloned repository `https://github.com/Denis0872/liza_alert_backend.git`
 - started PostgreSQL container with `docker compose up -d`
 - built the project on the server with Maven using Java 21
-- started the application from `target/liza_alert-0.0.1-SNAPSHOT.jar` under `nohup`
+- started the application from `target/liza_alert_backend-0.0.1-SNAPSHOT.jar` under `nohup`
 
 ## Validation
 

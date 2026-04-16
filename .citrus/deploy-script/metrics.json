@@ -5,7 +5,7 @@
   "flow": [
     "git pull --ff-only",
     "mvn -q -DskipTests package",
-    "sudo systemctl restart liza-alert.service",
+    "sudo systemctl restart liza-alert-backend.service",
     "curl -sk https://lizaalertspb.ru/api/v1/lost-cases"
   ],
   "commands": [

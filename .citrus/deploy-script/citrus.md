@@ -10,7 +10,7 @@
   - ensure clean working tree on `main`
   - `git pull --ff-only`
   - Maven package build with constrained memory options
-  - `systemd` restart for `liza-alert.service`
+  - `systemd` restart for `liza-alert-backend.service`
   - wait for healthy service state
   - retrying HTTPS health-check against `https://lizaalertspb.ru/api/v1/lost-cases`
 

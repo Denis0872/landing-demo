@@ -2,7 +2,7 @@
   "changeSet": "vps-secrets-without-vault",
   "status": "validated",
   "secretsModel": {
-    "rootOnlyEnvFile": "/etc/liza-alert/liza-alert.env",
+    "rootOnlyEnvFile": "/etc/liza-alert-backend/liza-alert-backend.env",
     "repoTemplate": ".env.example",
     "helperScript": "scripts/vps-secrets.sh",
     "deployScript": "scripts/deploy.sh"

@@ -23,12 +23,12 @@
   },
   "incident": {
     "suspiciousBinary": "/tmp/mysql",
-    "container": "liza-alert-postgres",
+    "container": "liza-alert-backend-postgres",
     "resolvedByContainerRecreation": true
   },
   "commands": [
     "top",
-    "docker top liza-alert-postgres",
+    "docker top liza-alert-backend-postgres",
     "curl https://278122.fornex.cloud/api/v1/lost-cases",
     "ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no -p 2222 denis@185.21.8.116",
     "ssh -p 2222 daniil@185.21.8.116",

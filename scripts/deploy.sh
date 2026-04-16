@@ -3,7 +3,7 @@
 set -euo pipefail
 
 APP_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-SERVICE_NAME="liza-alert.service"
+SERVICE_NAME="liza-alert-backend.service"
 APP_URL="https://lizaalertspb.ru/api/v1/lost-cases"
 MAVEN_OPTS_VALUE="-Xmx384m -XX:+UseSerialGC"
 
@@ -30,11 +30,11 @@ cd "$APP_DIR"
 info "Каталог проекта: $APP_DIR"
 
 if [[ ! -f "$APP_DIR/.env" ]]; then
-  if [[ -f /etc/liza-alert/liza-alert.env ]]; then
-    info "Синхронизирую .env из /etc/liza-alert/liza-alert.env"
-    sudo install -m 600 -o "$(id -un)" -g "$(id -gn)" /etc/liza-alert/liza-alert.env "$APP_DIR/.env"
+  if [[ -f /etc/liza-alert-backend/liza-alert-backend.env ]]; then
+    info "Синхронизирую .env из /etc/liza-alert-backend/liza-alert-backend.env"
+    sudo install -m 600 -o "$(id -un)" -g "$(id -gn)" /etc/liza-alert-backend/liza-alert-backend.env "$APP_DIR/.env"
   else
-    fail "Не найден .env и отсутствует /etc/liza-alert/liza-alert.env"
+    fail "Не найден .env и отсутствует /etc/liza-alert-backend/liza-alert-backend.env"
   fi
 fi
 
@@ -79,7 +79,7 @@ fi
 info "Проверяю HTTP endpoint"
 HTTP_CODE="000"
 for _ in {1..12}; do
-  HTTP_CODE="$(curl -sk -o /tmp/liza_alert_deploy_health.out -w '%{http_code}' "$APP_URL" || true)"
+  HTTP_CODE="$(curl -sk -o /tmp/liza_alert_backend_deploy_health.out -w '%{http_code}' "$APP_URL" || true)"
   if [[ "$HTTP_CODE" == "200" ]]; then
     break
   fi
@@ -87,10 +87,10 @@ for _ in {1..12}; do
 done
 
 if [[ "$HTTP_CODE" != "200" ]]; then
-  cat /tmp/liza_alert_deploy_health.out >&2 || true
-  fail "Health-check вернул HTTP $HTTP_CODE"
+  cat /tmp/liza_alert_backend_deploy_health.out >&2 || true
+  fail "Health-check РІРµСЂРЅСѓР» HTTP $HTTP_CODE"
 fi
 
 info "Деплой завершен успешно"
 info "Текущий commit: $(git rev-parse --short HEAD)"
-info "Ответ API: $(cat /tmp/liza_alert_deploy_health.out)"
+info "Ответ API: $(cat /tmp/liza_alert_backend_deploy_health.out)"

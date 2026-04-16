@@ -9,7 +9,7 @@
 - added `.env.example` as a safe template
 - ignored local runtime secret/log files in `.gitignore`
 - added `scripts/vps-secrets.sh` for controlled secret operations on the VPS
-- updated `scripts/deploy.sh` to bootstrap `.env` from `/etc/liza-alert/liza-alert.env` when needed
+- updated `scripts/deploy.sh` to bootstrap `.env` from `/etc/liza-alert-backend/liza-alert-backend.env` when needed
 
 ## Validation
 
@@ -19,6 +19,6 @@
 
 ## Outcome
 
-- secrets can stay root-only on the VPS in `/etc/liza-alert/liza-alert.env`
+- secrets can stay root-only on the VPS in `/etc/liza-alert-backend/liza-alert-backend.env`
 - repository keeps only a safe `.env.example`
 - deploy flow can recreate `.env` from the protected env file when required

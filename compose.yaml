@@ -1,22 +1,22 @@
 services:
   postgres:
     image: postgres:17-alpine
-    container_name: liza-alert-postgres
+    container_name: liza-alert-backend-postgres
     env_file:
       - .env
     environment:
-      POSTGRES_DB: ${POSTGRES_DB:-liza_alert}
+      POSTGRES_DB: ${POSTGRES_DB:-liza_alert_backend}
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
       - "${POSTGRES_BIND_HOST:-127.0.0.1}:${POSTGRES_PORT:-5434}:5432"
     volumes:
-      - liza-alert-postgres-data:/var/lib/postgresql/data
+      - liza-alert-backend-postgres-data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-liza_alert}"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-liza_alert_backend}"]
       interval: 10s
       timeout: 5s
       retries: 5
 
 volumes:
-  liza-alert-postgres-data:
+  liza-alert-backend-postgres-data:

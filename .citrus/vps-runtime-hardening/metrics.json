@@ -24,13 +24,13 @@
     "externalStatus": 200
   },
   "sysctl": {
-    "persistedFile": "/etc/sysctl.d/99-liza-alert.conf",
+    "persistedFile": "/etc/sysctl.d/99-liza-alert-backend.conf",
     "vm.swappiness": 10,
     "vm.vfs_cache_pressure": 50
   },
   "commands": [
-    "systemctl is-enabled liza-alert.service nginx",
-    "systemctl is-active liza-alert.service nginx",
+    "systemctl is-enabled liza-alert-backend.service nginx",
+    "systemctl is-active liza-alert-backend.service nginx",
     "curl http://localhost/api/v1/lost-cases",
     "curl http://185.21.8.116/api/v1/lost-cases"
   ]
